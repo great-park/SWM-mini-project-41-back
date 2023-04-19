@@ -3,6 +3,7 @@ const compression = require("compression");
 const methodOverride = require("method-override");
 const cors = require("cors");
 const router = require("../src/router/index");
+const errorHandler = require("../src/middleware/errorHandler");
 
 module.exports = function () {
   const app = express();
@@ -13,7 +14,8 @@ module.exports = function () {
     .use(express.urlencoded({ extended: true }))
     .use(methodOverride())
     .use(cors())
-    .use(router);
+    .use(router)
+    .use(errorHandler);
     
   return app;
 }
