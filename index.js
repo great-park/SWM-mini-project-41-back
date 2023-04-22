@@ -5,6 +5,9 @@ const { logger } = require("./config/winston");
 dotenv.config();
 const conn = require("./config/database");
 
+const mongo = require("./config/mongo");
+mongo.connect();
+
 const server = express().listen(port, () => {
   logger.info(`environment : ${process.env.NODE_ENV} - Server Start At Port ${port}`);
 });
