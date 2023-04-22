@@ -4,6 +4,7 @@ const router = express.Router();
 const ctrl = require('../controller/posting.ctrl');
 
 router.post('/', ctrl.publish);
-router.get('/:id', ctrl.getPosting);
+router.get('/', ctrl.fetchList);
+router.get('/:id', ctrl.fetchOne);
 
 module.exports = router;

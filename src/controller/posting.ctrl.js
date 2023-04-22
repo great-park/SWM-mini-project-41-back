@@ -17,13 +17,21 @@ const postingController = {
         });
     },
 
-    getPosting: (req, res) => {
+    fetchOne: (req, res) => {
         const { id } = req.params;
 
         Posting
         .findById(id)
         .then((posting) => {
             res.status(200).json(posting);
+        });
+    },
+
+    fetchList: (req, res) => {
+        Posting
+        .find({}, {title: 1})
+        .then((postings) => {
+            res.status(200).json(postings);
         });
     }
 }
