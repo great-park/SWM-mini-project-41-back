@@ -1,6 +1,9 @@
 const express = require("express");
+const postingRouter = require("./posting");
 
 const router = express.Router();
+
+router.use("/posting", postingRouter);
 
 router.get('/', (req, res) => {
   res.send(
