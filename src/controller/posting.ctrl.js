@@ -20,7 +20,6 @@ const postingController = {
 
         Posting
         .findById(id)
-        .populate('comments')
         .then((posting) => {
             res.status(200).json(posting);
         });
@@ -33,7 +32,7 @@ const postingController = {
             res.status(200).json(postings);
         });
     },
-    
+
 }
 
 module.exports = postingController;
