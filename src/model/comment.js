@@ -5,6 +5,7 @@ const commentSchema = new mongoose.Schema({
     name: String,
     content: String,
     posting_id: { type: ObjectId, ref: "Posting" },
+    created_at: { type: Date, default: () => new Date() },
 });
 
 module.exports = mongoose.model("Comment", commentSchema);
