@@ -1,4 +1,5 @@
 const Posting = require('../model/posting');
+const Comment = require('../model/comment');
 
 const postingController = {
     publish: (req, res) => {
