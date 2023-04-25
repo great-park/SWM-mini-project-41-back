@@ -22,6 +22,7 @@ const postingController = {
 
         Posting
         .findById(id)
+        .populate('comments')
         .then((posting) => {
             res.status(200).json(posting);
         });
