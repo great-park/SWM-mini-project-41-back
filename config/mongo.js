@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const dotenv = require("dotenv");
+const { logger } = require("./winston");
 
 dotenv.config();
 
@@ -13,7 +14,7 @@ module.exports = {
             }
         )
         .then(() => {
-            console.log('MongoDB Connected.');
+            logger.info('MongoDB Connected.');
         });
     }
 };

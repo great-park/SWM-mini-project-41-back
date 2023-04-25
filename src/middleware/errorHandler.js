@@ -1,9 +1,9 @@
-const winston = require("../../config/winston");
+const {logger} = require("../../config/winston");
 
 const errorHandler = (err, req, res, next) => {
   const status = err.status !== undefined ? err.status : 500;
   if (status === 500) {
-    winston.error(err.stack || '');
+    logger.error(err.stack || '');
   }
   res.status(status).json({
     error: {
