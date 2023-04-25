@@ -20,6 +20,9 @@ const commentController = {
       
         newComment
         .save()
+        .then(comment => {
+            res.status(200).json(comment);
+        })
         .catch(err => {
             res.status(500).json({ error: err.message });
         });
