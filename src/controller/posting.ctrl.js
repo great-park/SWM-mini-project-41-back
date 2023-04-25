@@ -5,9 +5,7 @@ const postingController = {
         const { title, content, user_name } = req.body;
 
         const posting = new Posting({
-            title,
-            content,
-            user_name
+            title, content, user_name
         });
 
         posting
@@ -37,21 +35,13 @@ const postingController = {
     },
 
     addComment: (req, res) => {
-        const { id } = req.params;
-      
+        const { name, content, posting_id } = req.body;
+
         const newComment = new Comment({
-          name: req.body.name,
-          content: req.body.content,
-          posting_id: id
+          name, content, posting_id
         });
       
         newComment.save()
-          .then(comment => {
-            Posting.findByIdAndUpdate(id, { $push: { comments: comment._id } })
-              .then(() => {
-                res.status(200).json({ message: 'Comment added successfully' });
-              });
-          })
           .catch(err => {
             res.status(500).json({ error: err.message });
           });
