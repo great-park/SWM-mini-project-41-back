@@ -1,9 +1,11 @@
 const express = require("express");
 const postingRouter = require("./posting");
+const commentRouter = require("./comment");
 
 const router = express.Router();
 
 router.use("/posting", postingRouter);
+router.use("/comment", commentRouter);
 
 router.get('/', (req, res) => {
   res.send(
